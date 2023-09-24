@@ -41,7 +41,7 @@ export default function CadastroUnidade() {
       </Box>
       <Box>    
         {
-          secoes[numSecao].checkbox.map(checkbox => {
+          secoes[numSecao]?.checkbox?.map(checkbox => {
             return <Checkbox key={checkbox.id} value={checkbox.value}>{checkbox.value}</Checkbox>
           })}
           

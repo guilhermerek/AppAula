@@ -3,7 +3,8 @@ import Logo from "./assets/ufpr.png";
 import { TEMAS } from "./estilos/temas";
 import { TouchableOpacity } from "react-native";
 
-export default function Login() {
+
+export default function Login({navigation}) {
   return (
     <VStack flex={1} alignItems="center" p={5} justifyContent="center">
       <Image source={Logo} alt="Logo do app da Aula" />
@@ -23,13 +24,15 @@ export default function Login() {
           <Input placeholder="Insira sua senha!" size="lg" w="100%" borderRadius="lg" bgColor="gray.100" shadow={3} />
         </FormControl>
       </Box>
-      <Button w="100%" bg={TEMAS.colors.blue[800]} mt={10} borderRadius="lg" >Entrar</Button>
+      <Button w="100%" bg={TEMAS.colors.blue[800]} mt={10} borderRadius="lg" 
+        onPress={() => navigation.navigate('Principal')}
+      >Entrar</Button>
       <Link href="https://www.google.com" mt={5}>
         Recuperar senha!
       </Link>
       <Box mt={10} w="100%" flexDirection="row" justifyContent="center">
         <Text> Ainda não possui cadastro? </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('CadastroUnidade')}>
           <Text color="blue.500"> Faça seu cadastro! </Text>
         </TouchableOpacity>
       </Box>
