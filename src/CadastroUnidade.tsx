@@ -43,8 +43,8 @@ export default function CadastroUnidade() {
         {
           secoes[numSecao]?.checkbox?.map(checkbox => {
             return <Checkbox key={checkbox.id} value={checkbox.value}>{checkbox.value}</Checkbox>
-          })}
-          
+       })}
+  
       </Box>
       {console.log(numSecao)}
       {(numSecao < secoes.length - 1) && <Botao onPress= {()=> avancarSecao()} mb={10}> Avançar </Botao>}

@@ -49,7 +49,7 @@ const secoes = [
         placeholder: "Digite a área total da unidade!"
       },
       ],
-    checkbox: [],
+    checkbox: []
     },
     {
       id: 2,
@@ -64,7 +64,7 @@ const secoes = [
           id: 2,
           label: "Área",
           placeholder: "Digite o usuario responsavel da unidade!",
-      }
+      },
   ],
   checkbox: []
   },
@@ -80,8 +80,8 @@ const secoes = [
     {
         id: 2,
         value: "Unidade inativa!"
-    }
-]
-}
+    },
+    ]
+  }
 ]
 export {secoes}
