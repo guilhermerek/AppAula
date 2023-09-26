@@ -20,3 +20,20 @@ export const TEMAS = extendTheme({
         xl: 24
     }
 });
+
+/**
+ *define o tema personalizado dentro da constante TEMAS.
+ O tema é um objeto JavaScript que possui duas principais propriedades:
+ colors e fontSizes.
+
+        colors: Essa propriedade define algumas cores personalizadas que podem ser usadas.
+        Elas são organizadas em grupos, "grey", "blue", "white" e "black".
+        Cada grupo possui valores numerados ("300", "500", "800") que representam
+        diferentes tons dessa cor.
+
+        fontSizes: Essa propriedade define tamanhos de fontes
+        personalizadas. Os tamanhos de fonte são "xs" (extra pequeno),
+        "sm" (pequeno), "md" (médio), "lg" (grande) e "xl" (extra grande).
+
+Esse tema personalizado pode ser aplicado globalmente
+ */

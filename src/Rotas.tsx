@@ -10,6 +10,10 @@ import CadastroUnidade from "./CadastroUnidade";
 
 export default function Rotas(){
     return (
+        /**
+         * estrutura de navegação usando NavigationContainer
+         * para encapsular as rotas do aplicativo
+         */
         <NavigationContainer>
             <Tab.Navigator>
                 <Tab.Screen 
@@ -25,3 +29,16 @@ export default function Rotas(){
         </NavigationContainer>
     )
 }
+
+/**
+ * Dentro do NavigationContainer, cria-se um Tab.Navigator
+ * que será usado para gerenciar as diferentes telas do aplicativo.
+ * 
+ * Dentro do Tab.Navigator, é definido várias telas usando
+ * Tab.Screen. Cada tela é associada a um nome
+ * ("Login", "Principal", "CadastroUnidade") e a um componente
+ * correspondente (por exemplo, Login, Principal, CadastroUnidade).
+ * 
+ * A propriedade options é usada para definir configurações de tela,
+ * como ocultar o cabeçalho (headerShown: false)
+ */
