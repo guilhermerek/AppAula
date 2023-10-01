@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const Tab = createNativeStackNavigator();
 
 import Login from "./Login";
-import Principal from "./Principal";
-import CadastroUnidade from "./CadastroUnidade";
+import Tabs from "./tabs";
+import CadastroUsuario from "./CadastroUsuario";
 
 export default function Rotas(){
     return (
@@ -20,10 +20,10 @@ export default function Rotas(){
                     name="Login" component={Login} options={{headerShown:false}}
                 />
                 <Tab.Screen 
-                    name="Principal" component={Principal} options={{headerShown:false}}
+                    name="Tabs" component={Tabs} options={{headerShown:false}}
                 />
                 <Tab.Screen 
-                    name="CadastroUnidade" component={CadastroUnidade} options={{headerShown:false}}
+                    name="CadastroUsuario" component={CadastroUsuario} options={{headerShown:false}}
                 />
             </Tab.Navigator>
         </NavigationContainer>

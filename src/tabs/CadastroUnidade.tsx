@@ -1,10 +1,10 @@
 import { VStack, Image, Box, Checkbox, ScrollView } from "native-base";
-import Logo from "./assets/ufpr.png";
-import { Titulo } from "./componentes/Titulo";
-import { EntradaTexto } from "./componentes/EntradaTexto";
-import { Botao } from "./componentes/Botao";
+import Logo from "../assets/ufpr.png";
+import { Titulo } from "../componentes/Titulo";
+import { EntradaTexto } from "../componentes/EntradaTexto";
+import { Botao } from "../componentes/Botao";
 import { useState } from "react";
-import { secoes } from "./utils/CadastroUnidadeTexto";
+import { secoes } from "../utils/CadastroUnidadeTexto";
 
 export default function CadastroUnidade() {
 

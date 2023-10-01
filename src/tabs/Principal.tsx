@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
-import { TEMAS } from './estilos/temas';
+import { TEMAS } from '../estilos/temas';
 import {  Text, Button, VStack, Image } from "native-base";
-import Logo from "./assets/ufpr.png";
+import Logo from "../assets/ufpr.png";
 
 /**componente principal */
 export default function Principal({navigation}) {
