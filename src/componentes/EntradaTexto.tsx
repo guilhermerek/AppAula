@@ -8,7 +8,8 @@ interface InputProps{
     label?: string;
     placeholder: string;
     secureTextEntry?: boolean;
-    leftIcon?: React.ReactNode;
+    value?: string,
+    onChangeText?: (text: string)=> void;
     /**
      * label: string que serve como rótulo para a entrada de texto
      * placeholder: string obrigatória que define o texto de espaço
@@ -27,6 +28,8 @@ export function EntradaTexto ({
     label,
     placeholder,
     secureTextEntry = false,
+    value,
+    onChangeText
 } : InputProps) : JSX.Element {
     return (
         <FormControl mt={3}>
@@ -37,9 +40,11 @@ export function EntradaTexto ({
                 borderRadius="lg"
                 bgColor="gray.100"
                 secureTextEntry={secureTextEntry}
-                shadow={3}>
+                shadow={3}
+                value={value}
+                onChangeText={onChangeText}
+                />
 
-                </Input>
         </FormControl>
         /**
          * FormControl, é usado para criar um controle de formulário.

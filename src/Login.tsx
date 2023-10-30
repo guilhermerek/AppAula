@@ -2,10 +2,28 @@ import { VStack, Image, Text, Box, FormControl, Input, Button, Link } from "nati
 import Logo from "./assets/ufpr.png";
 import { TEMAS } from "./estilos/temas";
 import { TouchableOpacity } from "react-native";
+import { Titulo } from "./componentes/Titulo";
+import { EntradaTexto } from "./componentes/EntradaTexto";
+import { useState } from "react";
+import { fazerLogin } from "./servicos/autenticacao";
 
 /**componente principal, que representa a tela de login*/
 
 export default function Login({navigation}) {
+
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  async function login() {
+    const resultado = await fazerLogin(email,senha)
+    console.log(resultado);
+    if(resultado && resultado.result.id){
+      navigation.replace('Tabs');
+    }else{
+      console.log("Erro");
+    }
+  }
+
   return (
     /**
      * organizado em um VStack com configurações para alinhar
@@ -16,25 +34,15 @@ export default function Login({navigation}) {
     <VStack flex={1} alignItems="center" p={5} justifyContent="center">
 
       <Image source={Logo} alt="Logo do app da Aula" />
-      <Text fontSize="2xl" fontWeight="bold" color={"gray.500"} textAlign="center" mt={5} >
-        Faça login com suas credenciais!
-      </Text>
+      <Titulo> Faça login com suas credenciais! </Titulo>
 
       <Box>
-        <FormControl mt={3}>
-          <FormControl.Label>Email</FormControl.Label>
-          <Input placeholder="Insira seu email!" size="lg" w="100%" borderRadius="lg" bgColor="gray.100" shadow={3} />
-        </FormControl>
-      </Box>
+        <EntradaTexto label="Email" placeholder="Insira seu email" value={email} onChangeText={setEmail} />
+        <EntradaTexto label="Senha" placeholder="Insira sua senha" value={senha} onChangeText={setSenha} secureTextEntry={true} />
 
-      <Box>
-        <FormControl mt={3}>
-          <FormControl.Label>Senha</FormControl.Label>
-          <Input placeholder="Insira sua senha!" size="lg" w="100%" borderRadius="lg" bgColor="gray.100" shadow={3} />
-        </FormControl>
       </Box>
       <Button w="100%" bg={TEMAS.colors.blue[800]} mt={10} borderRadius="lg" 
-        onPress={() => navigation.navigate('Tabs')}
+        onPress={login}
       >Entrar</Button>
       <Link href="https://www.google.com" mt={5}>
         Recuperar senha!
