@@ -1,4 +1,4 @@
-import { VStack, Image, Text, Box, FormControl, Input, Button, Link } from "native-base";
+import { VStack, Image, Text, Box, Button, Link, useToast } from "native-base";
 import Logo from "./assets/ufpr.png";
 import { TEMAS } from "./estilos/temas";
 import { TouchableOpacity } from "react-native";
@@ -13,6 +13,7 @@ export default function Login({navigation}) {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const toast= useToast();
 
   async function login() {
     const resultado = await fazerLogin(email,senha)
@@ -20,7 +21,11 @@ export default function Login({navigation}) {
     if(resultado && resultado.result.id){
       navigation.replace('Tabs');
     }else{
-      console.log("Erro");
+      toast.show({
+        title: "Erro no LOGIN!",
+        description: "Email ou senha incorreta!",
+        backgroundColor: 'red.500'
+      })
     }
   }
 

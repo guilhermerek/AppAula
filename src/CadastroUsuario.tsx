@@ -1,10 +1,21 @@
-import { VStack, Image, Text, Box, FormControl, Input, Button, Link } from "native-base";
+import { VStack, Image, Box, Button } from "native-base";
 import Logo from "./assets/ufpr.png";
 import { TEMAS } from "./estilos/temas";
+import { Titulo } from "./componentes/Titulo";
+import { secoes } from "./utils/CadastroUsuarioTexto";
+import { EntradaTexto } from "./componentes/EntradaTexto";
+import { useState } from "react";
 
 /**componente principal, que representa a tela de login*/
 
 export default function CadastroUsuario() {
+  
+  const [dados, setDados] = useState({} as any);
+
+  function atualizaDados(campo: string, valor:string){
+    setDados({...dados, [campo]:valor});
+  }
+
   return (
     /**
      * organizado em um VStack com configurações para alinhar
@@ -15,9 +26,27 @@ export default function CadastroUsuario() {
     <VStack flex={1} alignItems="center" p={5} justifyContent="center">
 
       <Image source={Logo} alt="Logo do app da Aula" />
-      <Text fontSize="2xl" fontWeight="bold" color={"gray.500"} textAlign="center" mt={5} >
-        Tela de cadastro do usuário!
-      </Text>
+      <Titulo> secoes.titulo </Titulo>
+      <Box>
+        {
+          secoes.entradaTexto.map(entrada => {
+            return (
+              <EntradaTexto
+              key={entrada.id}
+              label={entrada.label}
+              placeholder={entrada.placeholder}
+              value={dados[entrada.label]}
+              secureTextEntry={entrada.secureTextEntry}
+              onChangeText={(text => atualizaDados(entrada.name, text))}
+              />
+            )
+          })
+        }
+
+      </Box>
+      <Button w="100%" bg={TEMAS.colors.blue[400]} mb={10} borderRadius={"lg"} onPress={() => console.log(dados)}>
+        Cadastrar
+      </Button>
 
       
     </VStack>
