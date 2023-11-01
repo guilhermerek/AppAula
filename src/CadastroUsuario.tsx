@@ -2,7 +2,7 @@ import { VStack, Image, Box, Button } from "native-base";
 import Logo from "./assets/ufpr.png";
 import { TEMAS } from "./estilos/temas";
 import { Titulo } from "./componentes/Titulo";
-import { secoes } from "./utils/CadastroUsuarioTexto";
+import { usuarios } from "./utils/CadastroUsuarioTexto";
 import { EntradaTexto } from "./componentes/EntradaTexto";
 import { useState } from "react";
 
@@ -26,10 +26,10 @@ export default function CadastroUsuario() {
     <VStack flex={1} alignItems="center" p={5} justifyContent="center">
 
       <Image source={Logo} alt="Logo do app da Aula" />
-      <Titulo> secoes.titulo </Titulo>
+      <Titulo> {usuarios.titulo} </Titulo>
       <Box>
         {
-          secoes.entradaTexto.map(entrada => {
+          usuarios.entradaTexto.map(entrada => {
             return (
               <EntradaTexto
               key={entrada.id}
