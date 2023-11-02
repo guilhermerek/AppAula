@@ -1,4 +1,4 @@
-import { VStack, Image, Box, Button } from "native-base";
+import { VStack, Image, Box, Button, FormControl, Radio } from "native-base";
 import Logo from "./assets/ufpr.png";
 import { TEMAS } from "./estilos/temas";
 import { Titulo } from "./componentes/Titulo";
@@ -11,6 +11,7 @@ import { useState } from "react";
 export default function CadastroUsuario() {
   
   const [dados, setDados] = useState({} as any);
+  const [radioValue, setradioValue] = useState('');
 
   function atualizaDados(campo: string, valor:string){
     setDados({...dados, [campo]:valor});
@@ -42,6 +43,17 @@ export default function CadastroUsuario() {
             )
           })
         }
+        <FormControl.Label mt={5}>Tipo de usuario:</FormControl.Label>
+        <Radio.Group name="radioTipoUsuario" value={radioValue} onChange={(nextValue)=>{
+          setradioValue(nextValue);
+        }}>
+          <Radio value="normal" my={1}>
+            Usuario comum.
+          </Radio>
+          <Radio value="admin" my={1}>
+            Administrador.
+          </Radio>
+        </Radio.Group>
 
       </Box>
       <Button w="100%" bg={TEMAS.colors.blue[400]} mb={10} borderRadius={"lg"} onPress={() => console.log(dados)}>
